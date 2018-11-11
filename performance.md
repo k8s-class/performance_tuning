@@ -1,9 +1,13 @@
+# Kubernetes processes
+
+```
 kube-apiserver: Kubernete's REST API entry point that processes operations on Kubernetes objects, i.e. Pods, Deployments, Stateful Sets, Persistent Volume Claims, Secrets, etc. An operation mutates (create / update / delete) or reads a spec describing the REST API object(s)
 Etcd: A highly available key-value store for kube-apiserver
 kube-controller-manager: Runs control loops that manage objects from kube-apiserver and perform actions to make sure these objects maintain the states described by their specs
 kube-scheduler: Gets pending Pods from kube-apiserver, assigns a minion to the Pod on which it should run, and writes the assignments back to API server. kube-scheduler assigns minions based on available resources, QoS, data locality and other policies described in its driving algorithm
 kubelet: A Kubernetes worker that runs on each minion. It watches Pods via kube-apiserver and looks for Pods that are assigned to itself. It then syncs these Pods if possible. The procedure of Syncing Pods requires resource provisioning (i.e. mount volume), talking with container runtime to manage Pod life cycle (i.e. pull images, run containers, check container health, delete containers and garbage collect containers)
 kube-proxy: A network proxy that reflects Service (defined in Kubernetes REST API) that runs on each node. Watches Service and Endpoint objects from kube-apiserver and modifies the underlying kernel iptable for routing and redirection.
+```
 
 ----------------------------------------------------------------------------------
 kube-apiserver --max-requests-inflight(Throttle API requests) --target-ram-mb(Control memory consumption)
