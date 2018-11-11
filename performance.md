@@ -9,6 +9,7 @@ kubelet: A Kubernetes worker that runs on each minion. It watches Pods via kube-
 kube-proxy: A network proxy that reflects Service (defined in Kubernetes REST API) that runs on each node. Watches Service and Endpoint objects from kube-apiserver and modifies the underlying kernel iptable for routing and redirection.
 ```
 
+```
 ----------------------------------------------------------------------------------
 kube-apiserver --max-requests-inflight(Throttle API requests) --target-ram-mb(Control memory consumption)
 ----------------------------------------------------------------------------------
@@ -135,3 +136,4 @@ These 4 flags helps kubelet protect the host.
 Set `--max-pods` to prevent too many small containers from overloading the kubelet for a node. Generally, limit it to 80 or so Pods per node (roughly about 300 containers) per m3.2xlarge node.
 
 The `--kube-reserved` `--system-reserved` are also useful flags to reserve resources for system and kubernetes components (such as kernel, docker, kubelet, and other Kubernetes Daemon Sets). kube-scheduler will take this into consideration when scheduling pods
+```
